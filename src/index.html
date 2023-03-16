@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="user-scalable=no, width=device-width, height=device-height ,initial-scale=1, maximum-scale=1">
+    <script>
+        window.addEventListener('install', function (event) {
+            event.waitUntil(
+                caches.open('v1').then(function (cache) {
+                    return cache.addAll([
+                        '/index.html',
+                        '/index.js',
+                    ]);
+                })
+            );
+        });
+
+    </script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
+</html>
